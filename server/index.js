@@ -11,6 +11,7 @@ const dotenv = require('dotenv')
 
 dotenv.config()
 const postRouter = require('./router/posts.js');
+const userRouter = require('./router/users.js');
 
 const app = express()
 
@@ -20,8 +21,9 @@ app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }))
 app.use(cors())
 
 app.use('/posts', postRouter)
+app.use('/user', userRouter)
 
-const CONNECT_URL = process.env.CONNECT_URL;
+const CONNECT_URL = 'mongodb://localhost:27017/memories';
 const PORT = process.env.PORT || 5000;
 
 mongoose.connect(CONNECT_URL, { useNewUrlParser: true, useUnifiedTopology: true })

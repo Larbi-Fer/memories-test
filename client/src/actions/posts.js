@@ -4,7 +4,9 @@ import * as api from '../api'
 // Action Creator
 export const getPosts = async dispatch => {
     try {
+        console.log(1)
         const { data } = await api.fethPosts()
+        console.log(2)
             // const action = { type: 'FETCH_ALL', payload = [] }
             // return action
         dispatch({ type: FETCH_ALL, payload: data })
